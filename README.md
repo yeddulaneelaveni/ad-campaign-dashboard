@@ -18,5 +18,3 @@ A web-based dashboard that allows users to upload ad campaign data (CSV format) 
 
 ---
 
-## 📂 Project Structure
-
