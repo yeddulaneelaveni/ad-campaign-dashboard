@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ad Campaign Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Vue 3 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+  <!-- Axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <img src="https://img.icons8.com/fluency/48/000000/combo-chart.png" alt="logo" />
+      <h1>Ad Campaign Dashboard</h1>
+    </div>
+  </header>
+
+  <!-- APP -->
+  <div id="app" class="container">
+    <div class="card">
+      <h2>Upload Your Campaign Data (CSV)</h2>
+      <div class="upload-box">
+        <input type="file" @change="handleFileUpload" />
+        <button @click="submitFile">Upload</button>
+      </div>
+
+      <div v-if="campaigns.length">
+        <h3>📈 Results</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Campaign</th>
+              <th>CTR (%)</th>
+              <th>CPC</th>
+              <th>ROI (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(row, i) in campaigns" :key="i">
+              <td>{{ row.Campaign }}</td>
+              <td>{{ row.CTR.toFixed(2) }}</td>
+              <td>{{ row.CPC.toFixed(2) }}</td>
+              <td :class="{positive: row.ROI >= 0, negative: row.ROI < 0}">
+                {{ row.ROI.toFixed(2) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
