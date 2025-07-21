@@ -1,0 +1,16 @@
+ad-campaign-dashboard/
+│
+├── backend/
+│   ├── app.py
+│   ├── requirements.txt
+│
+├── frontend/
+│   ├── index.html
+│   ├── styles.css
+│   └── script.js
+│
+├── data/
+│   └── ad_data.csv
+│
+├── README.md
+└── .gitignore
